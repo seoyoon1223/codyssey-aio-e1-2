@@ -49,7 +49,25 @@ class QuizGame:
         )
 
     def play_quiz(self) -> None:
-        print("퀴즈 풀기 기능을 다음 단계에서 연결합니다.")
+        if not self.state.quizzes:
+            print("등록된 퀴즈가 없어 시작할 수 없습니다.")
+            return
+        print(f"\n📝 퀴즈를 시작합니다! (총 {len(self.state.quizzes)}문제)")
+        correct_count = 0
+        for index, quiz in enumerate(self.state.quizzes, start=1):
+            print(f"\n[문제 {index}] {quiz.question}")
+            for choice_index, choice in enumerate(quiz.choices, start=1):
+                print(f"{choice_index}. {choice}")
+            answer = read_integer("정답 번호 (1-4): ", 1, 4)
+            if quiz.is_correct(answer):
+                correct_count += 1
+                print("✅ 정답입니다!")
+            else:
+                print(f"❌ 오답입니다. 정답은 {quiz.answer}번입니다.")
+        print(
+            f"\n🏆 결과: {len(self.state.quizzes)}문제 중 "
+            f"{correct_count}문제 정답 ({correct_count * 100 // len(self.state.quizzes)}점)"
+        )
 
     def add_quiz(self) -> None:
         print("퀴즈 추가 기능을 다음 단계에서 연결합니다.")
