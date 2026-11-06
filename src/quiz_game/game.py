@@ -3,7 +3,8 @@
 from pathlib import Path
 
 from quiz_game.data import DEFAULT_QUIZZES
-from quiz_game.input_utils import GracefulExit, read_integer
+from quiz_game.input_utils import GracefulExit, read_integer, read_nonempty
+from quiz_game.quiz import Quiz
 from quiz_game.storage import GameState, load_state, save_state
 
 
@@ -70,7 +71,17 @@ class QuizGame:
         )
 
     def add_quiz(self) -> None:
-        print("퀴즈 추가 기능을 다음 단계에서 연결합니다.")
+        print("\n📌 새로운 퀴즈를 추가합니다.")
+        question = read_nonempty("문제를 입력하세요: ")
+        choices = tuple(
+            read_nonempty(f"선택지 {index}: ")
+            for index in range(1, 5)
+        )
+        answer = read_integer("정답 번호 (1-4): ", 1, 4)
+        quiz = Quiz(question, choices, answer)
+        self.state.quizzes.append(quiz)
+        self.save()
+        print("✅ 퀴즈가 추가되고 state.json에 저장되었습니다.")
 
     def show_quizzes(self) -> None:
         if not self.state.quizzes:
