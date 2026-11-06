@@ -1,0 +1,13 @@
+[project]
+name = "codyssey-aio-e1-2"
+version = "0.1.0"
+description = "A persistent Python fundamentals quiz game"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+quiz-game = "quiz_game.app:run"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
