@@ -99,11 +99,21 @@ STATE quizzes=9 best_score=9
 
 ## Git workflow
 
-Development was split into feature commits. Quiz play was developed on `feature/quiz-play` (`5898832`) and merged into `main` (`c89a057`). The history contains more than ten meaningful commits after this documentation commit. The clone and pull exercise was performed from the public GitHub repository; the exact commands and resulting commit IDs are recorded below after synchronization.
+Development was split into feature commits. Quiz play was developed on `feature/quiz-play` (`5898832`) and merged into `main` (`c89a057`). The history contains 13 meaningful commits, excluding the merge commit. The public repository was cloned at `3b97800`; a documentation commit (`5a13e2e`) was pushed from that clone and then pulled into the primary working copy.
 
 ```powershell
 git log --oneline --graph --decorate --all
 ```
+
+```powershell
+git clone https://github.com/seoyoon1223/codyssey-aio-e1-2.git missions/aio-e1/clone-practice/codyssey-aio-e1-2
+# clone started at 3b97800
+# in the clone: git add docs/git-workflow-practice.md; git commit; git push origin main
+git pull --ff-only origin main
+# Fast-forward 3b97800..5a13e2e; added docs/git-workflow-practice.md
+```
+
+The clone-side record is available in [docs/git-workflow-practice.md](docs/git-workflow-practice.md).
 
 ## Screenshots
 
