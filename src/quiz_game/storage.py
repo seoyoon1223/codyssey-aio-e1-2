@@ -44,15 +44,24 @@ def load_state(path: Path, default_quizzes: tuple[Quiz, ...]) -> GameState:
         return state
 
 
-def save_state(path: Path, state: GameState) -> None:
+def save_state(path: Path, state: GameState) -> bool:
     """Write a complete state atomically as UTF-8 JSON."""
-    path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = path.with_suffix(f"{path.suffix}.tmp")
-    temporary_path.write_text(
-        json.dumps(state.to_dict(), ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    temporary_path.replace(path)
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path.write_text(
+            json.dumps(state.to_dict(), ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        temporary_path.replace(path)
+        return True
+    except OSError as error:
+        print(f"저장에 실패했습니다: {error}")
+        try:
+            temporary_path.unlink(missing_ok=True)
+        except OSError:
+            pass
+        return False
 
 
 def _backup_corrupt_file(path: Path) -> None:

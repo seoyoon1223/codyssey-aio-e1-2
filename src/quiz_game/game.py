@@ -69,6 +69,10 @@ class QuizGame:
             f"\n🏆 결과: {len(self.state.quizzes)}문제 중 "
             f"{correct_count}문제 정답 ({correct_count * 100 // len(self.state.quizzes)}점)"
         )
+        if self.state.best_score is None or correct_count > self.state.best_score:
+            self.state.best_score = correct_count
+            self.save()
+            print("🎉 새로운 최고 점수입니다!")
 
     def add_quiz(self) -> None:
         print("\n📌 새로운 퀴즈를 추가합니다.")
