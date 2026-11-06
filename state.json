@@ -1,0 +1,95 @@
+{
+  "quizzes": [
+    {
+      "question": "파이썬을 처음 만든 사람은 누구인가요?",
+      "choices": [
+        "Linus Torvalds",
+        "Guido van Rossum",
+        "James Gosling",
+        "Bjarne Stroustrup"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "화면에 문자열을 출력하는 파이썬 함수는 무엇인가요?",
+      "choices": [
+        "input()",
+        "write()",
+        "print()",
+        "show()"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "여러 값을 순서대로 담고 변경할 수 있는 자료형은 무엇인가요?",
+      "choices": [
+        "list",
+        "tuple",
+        "bool",
+        "float"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "파이썬의 참·거짓 값으로 올바른 쌍은 무엇인가요?",
+      "choices": [
+        "YES / NO",
+        "1 / 0",
+        "True / False",
+        "On / Off"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "키와 값의 쌍을 저장하는 자료형은 무엇인가요?",
+      "choices": [
+        "set",
+        "dict",
+        "str",
+        "int"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "문자열이나 리스트의 항목 수를 알려주는 함수는 무엇인가요?",
+      "choices": [
+        "len()",
+        "count()",
+        "size()",
+        "range()"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "두 값이 같은지 비교하는 연산자는 무엇인가요?",
+      "choices": [
+        "=",
+        "!=",
+        ">=",
+        "=="
+      ],
+      "answer": 4
+    },
+    {
+      "question": "리스트의 항목을 하나씩 반복할 때 주로 사용하는 문장은 무엇인가요?",
+      "choices": [
+        "for",
+        "def",
+        "class",
+        "import"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "PEP 8에서 표준 들여쓰기 칸 수는?",
+      "choices": [
+        "2칸",
+        "4칸",
+        "8칸",
+        "탭만 사용"
+      ],
+      "answer": 2
+    }
+  ],
+  "best_score": 9
+}
